@@ -5,12 +5,12 @@ require_once 'db.php';
 
 $db = openDB(); // from db.php
 
-$statement = $db->prepare("SELECT email, message FROM emails WHERE date_time <= NOW()"); // get all emails
+$statement = $db->prepare("SELECT email, message FROM emails WHERE date_time <= NOW()"); // get all emails with timestamps older than now
 $statement->execute();
 $rows = $statement->fetchAll(PDO::FETCH_ASSOC); // return query as associative array
 
 
-$email_auth = simplexml_load_file("../../email.xml"); // stored my email credentials in an xml file on the server (above htdocs dir) so you can't read it here in plain text
+$email_auth = simplexml_load_file("../../email.xml"); // stored my email credentials in an xml file on the server so you can't read it here in plain text
 if(!$email_auth){
     die("could not load email for sending");
 }
