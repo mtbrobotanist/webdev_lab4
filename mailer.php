@@ -32,3 +32,8 @@ foreach($rows as $r)
 }
         
 $db = null;
+
+
+//CITATION: the above script, using the Swift library, was adapted from source code found here:
+
+    //http://stackoverflow.com/questions/712392/send-email-using-the-gmail-smtp-server-from-a-php-page
