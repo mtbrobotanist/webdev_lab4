@@ -1,0 +1,51 @@
+.mainpage{
+    background-color: #000000;
+    color: #FFFFFF;
+    text-align: center;    
+}
+
+.inputs{
+    padding: 20px;    
+}
+
+#regForm{
+width:350px;
+margin:0px;
+background-color:white;
+font-family: sans-serif;
+color: #000000;
+position: relative;
+border: 5px solid #0000FF;
+height:100%;
+}
+
+#regForm{
+left: 50%;
+top: 50%;
+margin-left:-210px;
+margin-top:-255px;
+padding: 20px;
+height:100%;
+}
+
+
+#signupBox{
+opacity:1.92;
+position: absolute;
+top: 0px;
+left: 0px;
+height: 100%;
+width: 100%;
+display: none;
+}
+
+#onclick{
+margin: 0 auto;
+cursor:pointer;
+padding:5px 5px 5px 15px;
+width:200px;
+color:#000000;
+background-color:#FFFFFF;
+box-shadow:1px 1px 5px grey;
+border-radius:3px;
+}
