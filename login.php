@@ -2,9 +2,8 @@
 <?php
     require_once 'db.php';
     
-    $conn = openDB();
-    
-    function newUser($user, $pass){        
+    function newUser($user, $pass){
+        $conn = openDB();
       //if(preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#", $pass)){
             $hash = password_hash($pass, PASSWORD_DEFAULT);
         //} 
@@ -22,6 +21,7 @@
     }//end newUser()
     
     function signUp(){
+        $conn = openDB();
         $user = $_POST['username'];
         $pass = $_POST['password'];
         
@@ -46,6 +46,7 @@
     }//end signup()
     
     function login($user, $pass){
+        $conn = openDB();
         $statement = $conn->prepare("SELECT * FROM users WHERE username=:user LIMIT 1");
         $statement->execute(array(':user'=>$user));
         $userRow = $statement->fetch(PDO::FETCH_ASSOC);
@@ -54,7 +55,7 @@
             if(password_verify($pass, $userRow['password'])){
                 echo "Welcome $user";
                 $_SESSION['username'] = $user;
-                header("Location: http://www.facebook.com");
+                header("Location: postlogin.php");
                 return true;
             }
             else{
@@ -156,6 +157,7 @@
                           <h3>Register Form</h3>
                           <div class="inputs">Username: <input type="text" name="username"></div>
                           <div class="inputs">Password: <input type="password" name="password"></div>
+                          <div class="inputs">Re-Enter Password: <input type="password" name="passsword"></div>
                           <div>
                               Strength: <div class="intext" id="mypassword"></div>
                           </div>
