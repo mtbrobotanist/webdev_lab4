@@ -6,3 +6,22 @@
  * and open the template in the editor.
  */
 
+?>
+
+
+<html>
+    <head>
+        
+    </head>
+    
+    <body>
+        <div>To: <input type="text">
+            Subject: <input type="text">
+            Body:<textarea></textarea>
+            When to Send: <input type=""
+        
+        </div>
+        
+    </body>
+    
+</html>
