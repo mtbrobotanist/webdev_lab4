@@ -1,0 +1,6 @@
+
+
+Additional Files:
+    
+    db.php: creates a connection to the database when openDB() is called, and returns the reference to the user.
+            useful for if you need a db connection in multiple scripts.
