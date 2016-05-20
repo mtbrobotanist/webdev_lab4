@@ -2,9 +2,9 @@
 <?php
     require_once 'db.php';
     
-    function newUser($user, $pass){
-        $conn = openDB();
-        
+    $conn = openDB();
+    
+    function newUser($user, $pass){        
       //if(preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#", $pass)){
             $hash = password_hash($pass, PASSWORD_DEFAULT);
         //} 
@@ -22,7 +22,6 @@
     }//end newUser()
     
     function signUp(){
-        $conn = openDB();
         $user = $_POST['username'];
         $pass = $_POST['password'];
         
@@ -47,7 +46,6 @@
     }//end signup()
     
     function login($user, $pass){
-        $conn = openDB();
         $statement = $conn->prepare("SELECT * FROM users WHERE username=:user LIMIT 1");
         $statement->execute(array(':user'=>$user));
         $userRow = $statement->fetch(PDO::FETCH_ASSOC);
