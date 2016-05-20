@@ -1,6 +1,35 @@
+Name: Nathaniel Wilson
+      Bryan Wong
+
+Files:
+    login.php: has 2 input fields, username and password if the user have an account. If not, there is a button that
+               pop up a display box to register a username and password. Inside the display box will ask the user to 
+               enter a valid username and password. When the user click the "Register" button, a few things happen behind it.
+               First, the username is being check whether or not the username is taken. Second, password is being validated
+               by making sure it has a letter, number and characters. Also being the length of 8-20 characters long. If all 
+               is successful, it will register the username and password into the database.
+
+    mailer.php: query the email database, then look at the timestamp that is less than the current time that hasn't been sent already,
+                then will send the email to the correct email address along with the subject, message, and date time. 
+
+    lab4.php:  After being successfully logged in, it will direct the user to the lab4.php page which has all the textfield and
+               drop-down menus to input any information. After inputting all the correct information, it will send them to the database.
 
 
 Additional Files:
     
     db.php: creates a connection to the database when openDB() is called, and returns the reference to the user.
             useful for if you need a db connection in multiple scripts.
+
+    lab4.css: have all the CSS codes for the website
+
+
+Extra Credits:
+    a) We created a salted hash password that store the "hash" password into the database instead of plain text. How we did it
+      was we used to functions, password_hash() and password_verify(). In the latest version of PHP, password_hash() creates
+      a new password using a strong one-way hashing algorithm. We didn't add our own salt because password_hash() will automatically
+      generate a salt for each password that is being inputted into the database. Password_verify() just verify if the password is correct.
+
+    b) We implemented a ensure password security by having the user to input letters, numbers and characters. It check on both side(Javascript
+       and PHP). If one or the other is missing, then it will output an error. If successfull, it will complete the registration. Also
+       implemented a way to ensure if the password is weak, good or strong before the user hit the register button.

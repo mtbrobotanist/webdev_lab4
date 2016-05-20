@@ -4,19 +4,18 @@
     
     function newUser($user, $pass){
         $conn = openDB();
-      //if(preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#", $pass)){
-            $hash = password_hash($pass, PASSWORD_DEFAULT);
-        //} 
-
-        $statement = $conn->prepare("INSERT INTO users(username, password) VALUES(:user, :pass)");
-        $statement->bindParam(":user", $user);
-        $statement->bindParam(":pass", $hash);
-        $statement->execute();
-        if($statement){
-            echo "<div class='regform'><h3>Regristration completed!</h3></div>";
-        }
+      if(preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[0-9]).*$#", $pass)){
+          $hash = password_hash($pass, PASSWORD_DEFAULT);
+          $statement = $conn->prepare("INSERT INTO users(username, password) VALUES(:user, :pass)");
+          $statement->bindParam(":user", $user);
+          $statement->bindParam(":pass", $hash);
+          $statement->execute();
+                if($statement){
+                    echo "Regristration completed!";
+                }
+            }//end if(preg_match)
         else{
-            echo "<div class='regform'><h3>Invalid username or password</h3></div>";
+            echo "Your password must contain letters, numbers and characters";
         }
     }//end newUser()
     
@@ -116,11 +115,11 @@
             
             function Strength(pass){
                 var score = passwordStrength(pass);
-                if(score > 80)
-                    return "Strong";
-                if(score > 60)
-                    return "Good";
                 if(score > 40)
+                    return "Strong";
+                if(score > 30)
+                    return "Good";
+                if(score > 20)
                     return "Weak";
                 return "";
             }//end strength()
@@ -128,11 +127,11 @@
             $(document).ready(function(){
                 $("#onclick").click(function(){//will bring up display box if click
                    $("#signupBox").css("display", "block");  
+             });//end onclick function 
                    $("#password").on("keypress keyup keydown", function(){
                        var pass = $(this).val();
                    $("#mypassword").text(Strength(pass));  
-                });//end mypassword function
-             });//end onclick function 
+                });//end mypassword function            
                 $("#exit").click(function(){//will exit the display box is cancel is hit
                     $(this).parent().parent().hide();
                 });//end exit function
@@ -156,13 +155,13 @@
                       <form method="POST" id="regForm">
                           <h3>Register Form</h3>
                           <div class="inputs">Username: <input type="text" name="username"></div>
-                          <div class="inputs">Password: <input type="password" name="password"></div>
-                          <div class="inputs">Re-Enter Password: <input type="password" name="passsword"></div>
+                          <div class="inputs">Password: <input type="password" name="password" id="password"></div>
                           <div>
                               Strength: <div class="intext" id="mypassword"></div>
-                          </div>
+                          </div>                        
                             <input type="submit" name="register" value="Register">
                             <input type="button" id="exit" value="Cancel" />
+                          
                       </form>
                   </div>
     </body>
