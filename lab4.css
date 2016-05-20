@@ -16,7 +16,6 @@ font-family: sans-serif;
 color: #000000;
 position: relative;
 border: 5px solid #0000FF;
-height:100%;
 }
 
 #regForm{
@@ -25,7 +24,6 @@ top: 50%;
 margin-left:-210px;
 margin-top:-255px;
 padding: 20px;
-height:100%;
 }
 
 
@@ -50,6 +48,6 @@ box-shadow:1px 1px 5px grey;
 border-radius:3px;
 }
 
-#login{
-    
+.intext{
+    display: inline-block;
 }
