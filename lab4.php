@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session_start();
 
 require_once 'db.php';
 
@@ -9,9 +9,7 @@ $page_num = 1;
 
 if (!isset($_SESSION['username']))
 {
-   // header("Location: login.php");
-    echo $_SESSION['username'];
-    die();
+   header("Location: login.php");
 }
 
 if(isset($_POST['page'])) // 2

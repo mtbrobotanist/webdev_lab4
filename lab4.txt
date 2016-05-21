@@ -36,3 +36,7 @@ Extra Credits:
        implemented a way to ensure if the password is weak, good or strong before the user hit the register button.
 
     c) We implemented validation for all the input before the form is submitted so the user cannot attack our program. 
+
+
+KNOWN BUGS:
+    when using $_SESSION variable for username authentication, it will not allow you to log in at all. we couldnt get it to work, so theoretically, you can by pass the log in page =(.
