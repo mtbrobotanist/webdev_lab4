@@ -33,3 +33,5 @@ Extra Credits:
     b) We implemented a ensure password security by having the user to input letters, numbers and characters. It check on both side(Javascript
        and PHP). If one or the other is missing, then it will output an error. If successfull, it will complete the registration. Also
        implemented a way to ensure if the password is weak, good or strong before the user hit the register button.
+
+    c) We implemented validation for all the input before the form is submitted so the user cannot attack our program. 
