@@ -53,6 +53,7 @@
         if($statement->rowCount() > 0){
             if(password_verify($pass, $userRow['password'])){
                 echo "Welcome $user";
+                session_start();
                 $_SESSION['username'] = $user;
                 header("Location: postlogin.php");
                 return true;

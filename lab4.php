@@ -1,14 +1,19 @@
 <?php
 
+require_once 'db.php';
+
+session_start();
+
 function checkInput()
 {
-    if(!$_SESSION['username'])
+    if(!isset($_SESSION['username']))
     {
         header("Location: login.php");
     }
     
 }
 
+checkInput();
 
 ?>
 
