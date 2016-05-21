@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <?php
+    session_start();
+    
     require_once 'db.php';
     
     function newUser($user, $pass){
@@ -53,14 +55,15 @@
         if($statement->rowCount() > 0){
             if(password_verify($pass, $userRow['password'])){
                 echo "Welcome $user";
-                session_start();
                 $_SESSION['username'] = $user;
-                header("Location: postlogin.php");
-                return true;
+                header("Location: lab4.php");
             }
             else{
                 echo "Wrong username or password!";
-            }
+        }
+        }
+        else{
+            echo "Wrong username or password!";
         }
     }//end login();
 
@@ -144,7 +147,7 @@
         <h1>Welcome! Please log in!</h1>
         
         
-        <form method="POST">
+        <form method="POST" action = "lab4.php">
               <div class="inputs">Username:<input type="text" name="username"/>    
                   <p>Password:<input type="password" name="password"/></p>
                   <p id="submitbtn"><input type="submit" name="submit" value="Submit"/></p>   
