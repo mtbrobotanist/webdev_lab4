@@ -15,6 +15,7 @@ Files:
     lab4.php:  After being successfully logged in, it will direct the user to the lab4.php page which has all the textfield and
                drop-down menus to input any information. After inputting all the correct information, it will send them to the database.
 
+    lab4.mysql: Basically dumped the whole database into a file.
 
 Additional Files:
     
